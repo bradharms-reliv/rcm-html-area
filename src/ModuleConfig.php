@@ -14,6 +14,11 @@ class ModuleConfig
      */
     public function __invoke()
     {
-        return include __DIR__ . '/../config/module.config.php';
+        $config = include __DIR__ . '/../config/module.config.php';
+
+        return [
+            'asset_manager' => $config['asset_manager'],
+            'rcmPlugin' => $config['rcmPlugin']
+        ];
     }
 }
